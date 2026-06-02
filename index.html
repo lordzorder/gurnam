@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurnam Kundalini Jóga</title>
+    <meta name="description"
+        content="Modern, tiszta és mély Kundalini jóga gyakorlás. Csatlakozz óráinkhoz, programjainkhoz, és tapasztald meg a belső ébredést.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FAF9F6;
+            --color-deep-blue: #0F172A;
+            --color-gold: #D4AF37;
+            --color-gold-hover: #e0b943;
+            --color-charcoal: #333333;
+            --color-light-gray: #EAE8E3;
+            --color-white: #FFFFFF;
+            --page-x: clamp(48px, 7.5vw, 120px);
+            --bg-dark: #05070c;
+
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.1);
+            --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--color-charcoal); background-color: var(--color-bg); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 400; line-height: 1.2; color: var(--color-deep-blue); }
+        p { margin-bottom: 1rem; font-weight: 300; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Buttons */
+        .btn { display: inline-block; padding: 12px 32px; border-radius: 30px; font-family: var(--font-body); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.5px; text-transform: uppercase; transition: var(--transition); cursor: pointer; border: none; }
+        .btn-primary { background-color: var(--color-gold); color: var(--color-deep-blue); box-shadow: var(--shadow-gold); }
+        .btn-primary:hover { background-color: var(--color-gold-hover); transform: translateY(-2px); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4); }
+        .btn-outline { background-color: transparent; color: var(--color-deep-blue); border: 1px solid var(--color-deep-blue); }
+        .btn-outline:hover { background-color: var(--color-deep-blue); color: var(--color-white); }
+
+        /* Animations (Temporarily Disabled for debugging) */
+        .fade-up { opacity: 1; transform: none; transition: none; }
+        .fade-up.visible { opacity: 1; transform: none; }
+        .delay-1 { transition-delay: 0s; }
+        .delay-2 { transition-delay: 0s; }
+        .delay-3 { transition-delay: 0s; }
+
+        /* Navigation */
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0; z-index: 1000; transition: var(--transition); background: rgba(5, 8, 15, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .navbar.scrolled { padding: 1rem 0; box-shadow: var(--shadow-lg); }
+        .navbar .container { max-width: none; width: 100%; padding-left: var(--page-x); padding-right: var(--page-x); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; color: var(--color-white); transition: var(--transition); letter-spacing: 1px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--color-white); font-size: 0.9rem; font-weight: 500; transition: var(--transition); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background-color: var(--color-gold); transition: var(--transition); }
+        .nav-links a:hover::after { width: 100%; }
+        .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; }
+        .hamburger span { width: 25px; height: 2px; background-color: var(--color-white); transition: var(--transition); }
+
+        /* Hero Section */
+        .hero { position: relative; height: 100vh; min-height: 760px; overflow: hidden; isolation: isolate; background: var(--bg-dark); margin: 0; padding: 0; }
+        .hero-parallax { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; contain: layout paint; }
+        .hero-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; transform: translate3d(0, 0, 0); transform-origin: center; will-change: transform; backface-visibility: hidden; }
+        .hero-layer-bg { inset: -6%; width: 112%; height: 112%; z-index: 1; }
+        .hero-layer-mist { inset: -6%; width: 112%; height: 112%; z-index: 10; overflow: hidden; }
+        .hero-layer-subject { z-index: 12; }
+        .hero-layer-img { position: absolute; max-width: none; user-select: none; pointer-events: none; transform: translate3d(0, 0, 0); transform-origin: center; will-change: transform; backface-visibility: hidden; }
+        .hero-layer-bg .hero-layer-img { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; transform: translate3d(0, 0, 0) scale(1.04); }
+        .hero-mist { inset: 0; width: 100%; height: 100%; opacity: 0.96; z-index: 10; object-fit: cover; object-position: 62% center; transform-origin: center center; }
+        .hero-subject { right: clamp(80px, 10vw, 180px); bottom: clamp(40px, 7vh, 90px); width: auto; height: auto; max-height: 82vh; object-fit: contain; object-position: center; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(5, 8, 15, 0.26); z-index: 11; pointer-events: none; }
+        .hero-bottom-gradient { position: absolute; left: 0; right: 0; bottom: -2px; height: 36vh; background: linear-gradient(to bottom, rgba(5, 7, 12, 0) 0%, rgba(5, 7, 12, 0.72) 45%, rgba(5, 7, 12, 0.96) 78%, var(--bg-dark) 100%); z-index: 20; pointer-events: none; }
+        .hero-content { position: relative; z-index: 30; height: 100%; width: min(620px, calc(100% - (var(--page-x) * 2))); max-width: 620px; margin-left: var(--page-x); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; text-align: left; padding: 0; text-shadow: 0 4px 22px rgba(0, 0, 0, 0.62); }
+        .hero-content h1 { color: var(--color-white); font-size: 4rem; margin-bottom: 1.5rem; letter-spacing: -0.5px; }
+        .hero-content p { color: rgba(255, 255, 255, 0.8); font-size: 1.2rem; margin-bottom: 2.5rem; font-weight: 300; }
+
+        /* Sections */
+        section { margin: 0; padding: 6rem 0; position: relative; border: 0; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .section-header p { color: var(--color-charcoal); opacity: 0.7; max-width: 600px; margin: 0 auto; }
+        .accent-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(15, 23, 42, 0.03) 0%, transparent 40%); pointer-events: none; z-index: 0; }
+
+        /* Tanítások Grid */
+        #tanitasok { position: relative; background-color: var(--bg-dark); margin-top: 0; padding-top: 0; border-top: none; box-shadow: none; }
+        #tanitasok::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, rgba(5, 7, 12, 0.96), var(--bg-dark)); pointer-events: none; z-index: 0; }
+        #tanitasok .container { position: relative; z-index: 1; }
+        #tanitasok .section-header h2 { color: var(--color-white); }
+        #tanitasok .section-header p { color: rgba(255, 255, 255, 0.8); }
+        #tanitasok .accent-bg { display: none; }
+        .teachings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; position: relative; z-index: 1; }
+        .teaching-card { background: rgba(15, 23, 42, 0.6); border-radius: 12px; box-shadow: var(--shadow-sm); border: 1px solid rgba(212, 175, 55, 0.2); backdrop-filter: blur(10px); transition: var(--transition); text-align: center; overflow: hidden; display: flex; flex-direction: column; }
+        .teaching-card-img { height: 220px; width: 100%; background-size: cover; background-position: center; position: relative; }
+        .teaching-card-img.icon-bg { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1e293b, #0F172A); }
+        .teaching-card-body { padding: 2.5rem 2rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .teaching-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: rgba(212, 175, 55, 0.5); }
+        .teaching-card:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 4px; }
+        .teaching-icon { width: 50px; height: 50px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--color-gold), #f3d472); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.5rem; }
+        .teaching-card h3 { margin-bottom: 1rem; font-size: 1.5rem; color: var(--color-white); }
+        .teaching-card p { font-size: 0.95rem; color: rgba(255, 255, 255, 0.8); margin: 0; }
+
+        /* Schedule */
+        .schedule-container { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; position: relative; z-index: 1; }
+        .next-class-card { background: var(--color-deep-blue); color: var(--color-white); padding: 3rem 2.5rem; border-radius: 16px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; min-height: 400px; }
+        .next-class-card::before { content: ''; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%); border-radius: 50%; }
+        .next-class-tag { background: rgba(212, 175, 55, 0.2); color: var(--color-gold); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; align-self: flex-start; margin-bottom: 2rem; border: 1px solid rgba(212, 175, 55, 0.3); }
+        .next-class-card h3 { color: var(--color-white); font-size: 2rem; margin-bottom: 0.5rem; }
+        .next-class-details { margin-bottom: 2rem; }
+        .next-class-details p { color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px; }
+        .schedule-list { display: flex; flex-direction: column; gap: 1rem; }
+        .schedule-item { background: var(--color-white); padding: 1.5rem 2rem; border-radius: 12px; box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center; transition: var(--transition); border-left: 4px solid transparent; cursor: pointer; }
+        .schedule-item:hover, .schedule-item.active { transform: translateX(5px); box-shadow: var(--shadow-md); border-left-color: var(--color-gold); }
+        .schedule-time { font-weight: 500; color: var(--color-gold); font-size: 1.1rem; min-width: 120px; }
+        .schedule-info h4 { font-family: var(--font-body); font-weight: 500; font-size: 1.1rem; margin-bottom: 0.2rem; }
+        .schedule-info p { font-size: 0.9rem; opacity: 0.7; margin: 0; }
+        .schedule-action { color: var(--color-deep-blue); font-weight: 500; font-size: 0.9rem; transition: var(--transition); cursor: pointer; }
+        .schedule-action:hover { color: var(--color-gold); }
+
+        /* Generic Cards (Programs & Blog) */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; position: relative; z-index: 1; }
+        .card { background: var(--color-white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+        .card-img-placeholder { height: 220px; width: 100%; }
+        .gradient-1 { background: linear-gradient(135deg, #1e293b, #0F172A); }
+        .gradient-2 { background: linear-gradient(135deg, #D4AF37, #9b7e1f); }
+        .gradient-3 { background: linear-gradient(135deg, #e2e1dc, #d1cfc7); }
+        .card-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-meta { font-size: 0.85rem; color: var(--color-gold); font-weight: 500; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 1rem; line-height: 1.3; }
+        .card p { font-size: 0.95rem; opacity: 0.8; margin-bottom: 1.5rem; flex-grow: 1; }
+        .card-link { font-weight: 500; color: var(--color-deep-blue); display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); }
+        .card-link:hover { color: var(--color-gold); gap: 12px; }
+
+        /* Carousel */
+        .carousel-wrapper { position: relative; padding: 0 10px; }
+        .carousel-track { display: flex; gap: 2.5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; padding: 20px 0; }
+        .carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-slide { flex: 0 0 100%; scroll-snap-align: center; }
+        @media (min-width: 768px) { .carousel-slide { flex: 0 0 calc(50% - 1.25rem); } }
+        @media (min-width: 1024px) { .carousel-slide { flex: 0 0 calc(33.333% - 1.666rem); } }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--color-white); border: 1px solid var(--color-gold); color: var(--color-gold); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; box-shadow: var(--shadow-sm); transition: var(--transition); font-size: 1.2rem; }
+        .carousel-btn:hover { background: var(--color-gold); color: var(--color-white); }
+        .carousel-btn.prev { left: -15px; }
+        .carousel-btn.next { right: -15px; }
+
+        /* About Section */
+        .about-section { background-color: var(--color-deep-blue); color: var(--color-white); padding: 8rem 0; position: relative; overflow: hidden; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+        .about-image { width: 100%; aspect-ratio: 4/5; border-radius: 16px; background: linear-gradient(45deg, #1e293b, #D4AF37); box-shadow: var(--shadow-lg); position: relative; }
+        .about-image::after { content: ''; position: absolute; top: 20px; left: 20px; width: 100%; height: 100%; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 16px; z-index: -1; }
+        .about-content h2 { color: var(--color-white); font-size: 3rem; margin-bottom: 1.5rem; }
+        .about-content h2 span { color: var(--color-gold); font-style: italic; }
+        .about-content p { color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .signature { font-family: var(--font-heading); font-size: 2rem; color: var(--color-gold); margin-top: 2rem; font-style: italic; }
+
+        /* Contact Section */
+        .contact-container { max-width: 800px; margin: 0 auto; background: var(--color-white); padding: 4rem; border-radius: 16px; box-shadow: var(--shadow-md); position: relative; z-index: 1; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; }
+        .contact-info h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .info-item { margin-bottom: 1.5rem; }
+        .info-item h4 { font-family: var(--font-body); font-size: 0.9rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.3rem; }
+        .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .form-control { padding: 12px 16px; border: 1px solid var(--color-light-gray); border-radius: 8px; font-family: var(--font-body); font-size: 1rem; background: var(--color-bg); transition: var(--transition); }
+        .form-control:focus { outline: none; border-color: var(--color-gold); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1); }
+        textarea.form-control { resize: vertical; min-height: 120px; }
+
+        /* Footer */
+        footer { background-color: #0A0F1D; color: rgba(255, 255, 255, 0.7); padding: 4rem 0 2rem; text-align: center; }
+        .footer-logo { font-family: var(--font-heading); font-size: 2rem; color: var(--color-white); margin-bottom: 1rem; display: inline-block; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .footer-links a { transition: var(--transition); }
+        .footer-links a:hover { color: var(--color-gold); }
+        .copyright { font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; }
+
+        /* Mobile Sticky CTA */
+        .mobile-cta { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--color-gold); color: var(--color-deep-blue); padding: 14px 32px; border-radius: 30px; font-weight: 600; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3); z-index: 999; text-decoration: none; white-space: nowrap; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .schedule-container { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-image { max-width: 500px; margin: 0 auto; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --page-x: 24px; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: var(--color-deep-blue); flex-direction: column; justify-content: center; align-items: center; transition: var(--transition); z-index: 1000; }
+            .nav-links.active { right: 0; }
+            .hamburger { display: flex; }
+            .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            .navbar.scrolled .hamburger.active span { background-color: var(--color-white); }
+            .navbar.scrolled .nav-links a { color: var(--color-white); }
+            .hero-mist { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; }
+            .hero-subject { right: -52vw; bottom: 6%; max-height: 68vh; }
+            .hero-overlay { background: rgba(5, 8, 15, 0.32); }
+            .hero-content { width: min(620px, calc(100% - (var(--page-x) * 2))); margin-left: var(--page-x); margin-right: var(--page-x); }
+            .hero-content h1 { font-size: 2.5rem; }
+            section { padding: 4rem 0; }
+            .section-header h2 { font-size: 2rem; }
+            .contact-container { padding: 2rem; }
+            .mobile-cta { display: block; }
+            body { padding-bottom: 80px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-layer,
+            .hero-layer-img {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">GURNAM</a>
+            <div class="nav-links">
+                <a href="#tanitasok">A Tanítások</a>
+                <a href="#orarend">Órarend</a>
+                <a href="#programok">Programok</a>
+                <a href="#irasok">Írások</a>
+                <a href="#rolam">Rólam</a>
+                <a href="#kapcsolat">Kapcsolat</a>
+            </div>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-parallax" aria-hidden="true">
+            <div class="hero-layer hero-layer-bg" data-parallax-layer="bg">
+                <img src="images/hero-bg.jpg" class="hero-layer-img hero-bg" alt="" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+            <div class="hero-layer hero-layer-mist" data-parallax-layer="mist">
+                <img src="images/hero-mist.png" class="hero-layer-img hero-mist" alt="" loading="eager" decoding="async">
+            </div>
+            <div class="hero-layer hero-layer-subject" data-parallax-layer="subject">
+                <img src="images/hero-subject.png" class="hero-layer-img hero-subject" alt="" loading="eager" decoding="async">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-bottom-gradient"></div>
+        <div class="hero-content fade-up">
+            <h1 id="heroTitle">Ébredj a saját belső erődre</h1>
+            <p id="heroSubtitle">Modern, tiszta és mély Kundalini jóga gyakorlás. Lépj be a csendbe, és találd meg a válaszokat önmagadban.</p>
+            <a href="#orarend" id="heroButtonText" class="btn btn-primary">Részletek</a>
+        </div>
+    </header>
+
+    <!-- A Tanítások (Teachings) -->
+    <section id="tanitasok">
+        <div class="accent-bg"></div>
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 id="teachingsTitle">A Rendszer</h2>
+                <p id="teachingsSubtitle">A Kundalini jóga egy ősi, átfogó tudomány, amely fizikai gyakorlatokat, légzéstechnikákat, mantrákat és meditációt ötvöz a tudatosság emelésére.</p>
+            </div>
+            <div class="teachings-grid">
+                <a href="kundalini-joga.html" class="teaching-card fade-up delay-1">
+                    <div class="teaching-card-img icon-bg">
+                        <div class="teaching-icon" style="margin: 0;">K</div>
+                    </div>
+                    <div class="teaching-card-body">
+                        <h3 id="kundaliniTitle">Kundalini Jóga</h3>
+                        <p id="kundaliniText">Dinamikus mozgás és légzés a kreatív életenergia felébresztésére és áramoltatására a testben.</p>
+                    </div>
+                </a>
+                <a href="mantra.html" class="teaching-card fade-up delay-2">
+                    <div class="teaching-card-img" style="background: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.6)), url('images/mantra.jpg') center/cover no-repeat;"></div>
+                    <div class="teaching-card-body">
+                        <h3 id="mantraTitle">Mantra</h3>
+                        <p id="mantraText">Szent hangrezgések használata az elme lecsendesítésére és az idegrendszer finomhangolására.</p>
+                    </div>
+                </a>
+                <a href="meditacio.html" class="teaching-card fade-up delay-3">
+                    <div class="teaching-card-img" style="background: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.6)), url('images/meditation.jpg') center/cover no-repeat;"></div>
+                    <div class="teaching-card-body">
+                        <h3 id="meditacioTitle">Meditáció</h3>
+                        <p id="meditacioText">A jelenlét mély megtapasztalása, a belső figyelem fókuszálása és az elme megtisztítása.</p>
+                    </div>
+                </a>
+                <a href="kriya.html" class="teaching-card fade-up delay-1">
+                    <div class="teaching-card-img" style="background: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.6)), url('images/kriya.jpg') center/cover no-repeat;"></div>
+                    <div class="teaching-card-body">
+                        <h3 id="kriyaTitle">Kriya</h3>
+                        <p id="kriyaText">Célzott gyakorlatsorok, amelyek specifikus fizikai, érzelmi vagy mentális hatást érnek el.</p>
+                    </div>
+                </a>
+                <a href="japji-sahib.html" class="teaching-card fade-up delay-2">
+                    <div class="teaching-card-img icon-bg">
+                        <div class="teaching-icon" style="margin: 0;">J</div>
+                    </div>
+                    <div class="teaching-card-body">
+                        <h3 id="japjiTitle">Japji Sahib</h3>
+                        <p id="japjiText">A lélek éneke, hajnali spirituális fegyelem és mély meditációs szöveg a belső harmóniáért.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Órarend (Schedule) -->
+    <section id="orarend" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 id="scheduleTitle">Órarend</h2>
+                <p id="scheduleSubtitle">Csatlakozz rendszeres óráinkhoz személyesen Budapesten vagy online a világ bármely pontjáról.</p>
+                <p id="live-clock" style="font-size: 14px; margin-top: 14px; color: rgba(10, 20, 40, 0.55); text-align: center; font-weight: 500;"></p>
+            </div>
+            
+            <div class="schedule-container" id="dynamic-schedule-container">
+                <div class="next-class-card fade-up" id="detail-panel">
+                    <div class="next-class-tag">Atlantisz</div>
+                    <div>
+                        <h3>Atlantisz</h3>
+                        <div class="next-class-details">
+                            <p><i>📅</i> Csütörtök, 19:00</p>
+                            <p><i>📍</i> Budapest, Atlantisz</p>
+                            <p><i>⏱️</i> 90 perc</p>
+                            <p><i>🧘‍♀️</i> Tisztító kriya gyakorlatok.</p>
+                        </div>
+                        <a href="mailto:hello@atlantisz.hu?subject=Jelentkezés&body=Kedves%20Gurnam" class="btn btn-primary" style="width: 100%; text-align: center;">Érdeklődöm</a>
+                    </div>
+                </div>
+                <div class="schedule-list">
+                    <div class="schedule-item fade-up delay-1">
+                        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                            <div class="schedule-time">Hétfő 18:45</div>
+                            <div class="schedule-info">
+                                <h4>Útközben Jóga</h4>
+                                <p>Útközben Jóga • 90 perc</p>
+                                <p style="font-size:0.8rem;opacity:0.6">Dinamikus gyakorlás az idegrendszer támogatására.</p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="schedule-action view-details-btn" data-index="0">Részletek &rarr;</a>
+                    </div>
+                    <div class="schedule-item fade-up delay-2">
+                        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                            <div class="schedule-time">Szerda 19:45</div>
+                            <div class="schedule-info">
+                                <h4>Lélekforma</h4>
+                                <p>Lélekforma Stúdió • 90 perc</p>
+                                <p style="font-size:0.8rem;opacity:0.6">Mély belső munka és meditáció.</p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="schedule-action view-details-btn" data-index="1">Részletek &rarr;</a>
+                    </div>
+                    <div class="schedule-item fade-up delay-3">
+                        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                            <div class="schedule-time">Csütörtök 19:00</div>
+                            <div class="schedule-info">
+                                <h4>Atlantisz</h4>
+                                <p>Atlantisz • 90 perc</p>
+                                <p style="font-size:0.8rem;opacity:0.6">Tisztító kriya gyakorlatok.</p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="schedule-action view-details-btn" data-index="2">Részletek &rarr;</a>
+                    </div>
+                    <div class="schedule-item fade-up delay-1">
+                        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                            <div class="schedule-time">Vasárnap 19:00</div>
+                            <div class="schedule-info">
+                                <h4>Lélekforma</h4>
+                                <p>Lélekforma Stúdió • 90 perc</p>
+                                <p style="font-size:0.8rem;opacity:0.6">Vasárnap esti elmélyülés.</p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="schedule-action view-details-btn" data-index="3">Részletek &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Programok (Programs) -->
+    <section id="programok">
+        <div class="accent-bg"></div>
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 id="eventsTitle">Események és Programok</h2>
+                <p id="eventsSubtitle">Mélyítsd el a gyakorlásod tematikus workshopjainkon és elvonulásainkon.</p>
+            </div>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev" id="carousel-prev">&larr;</button>
+                <button class="carousel-btn next" id="carousel-next">&rarr;</button>
+                <div class="carousel-track" id="dynamic-events-track">
+                    <div class="carousel-slide fade-up delay-1">
+                        <div class="card" style="height:100%;">
+                            <div class="card-img-placeholder gradient-1" style="background: linear-gradient(135deg, #1e293b, #0F172A);"></div>
+                            <div class="card-content">
+                                <div class="card-meta">2023. Október 12-15.</div>
+                                <h3>Őszi Csend Elvonulás</h3>
+                                <p>Négy nap teljes elvonulás a természettől körülvéve. Napi háromszori jóga, csendmeditációk és tisztító vegetáriánus étkezés.</p>
+                                <a href="#kapcsolat" class="card-link">Tudj meg többet &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide fade-up delay-2">
+                        <div class="card" style="height:100%;">
+                            <div class="card-img-placeholder gradient-2" style="background: linear-gradient(135deg, #D4AF37, #9b7e1f);"></div>
+                            <div class="card-content">
+                                <div class="card-meta">2023. November 05.</div>
+                                <h3>A Csakrák Egyensúlya Workshop</h3>
+                                <p>Három órás intenzív műhelymunka, ahol elméletben és gyakorlatban is végighaladunk a hét fő energiaközponton.</p>
+                                <a href="#kapcsolat" class="card-link">Tudj meg többet &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Írások (Blog) -->
+    <section id="irasok" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 id="blogTitle">Írások</h2>
+                <p id="blogSubtitle">Gondolatok, tapasztalatok és mélyebb tanítások a Kundalini jógáról és a tudatos életről.</p>
+            </div>
+            <div class="cards-grid" id="dynamic-blogs-grid">
+                <div class="card fade-up delay-1">
+                    <div class="card-img-placeholder gradient-3"></div>
+                    <div class="card-content">
+                        <div class="card-meta">Filozófia</div>
+                        <h3>Mi valójában a Kundalini energia?</h3>
+                        <p>A Kundalini sokak számára egy misztikus, félelmetes erő. Ebben az írásban tisztázzuk, hogy mi is ez a természetes biológiai és spirituális potenciál.</p>
+                        <a href="#kapcsolat" class="card-link">Tovább olvasom &rarr;</a>
+                    </div>
+                </div>
+                <div class="card fade-up delay-2">
+                    <div class="card-img-placeholder gradient-1"></div>
+                    <div class="card-content">
+                        <div class="card-meta">Gyakorlat</div>
+                        <h3>Hogyan kezdjünk el meditálni?</h3>
+                        <p>Gyakorlati útmutató azoknak, akik úgy érzik, "nem tudnak meditálni". Egyszerű lépések a belső csend megtapasztalásához.</p>
+                        <a href="#kapcsolat" class="card-link">Tovább olvasom &rarr;</a>
+                    </div>
+                </div>
+                <div class="card fade-up delay-3">
+                    <div class="card-img-placeholder gradient-2"></div>
+                    <div class="card-content">
+                        <div class="card-meta">Tudomány</div>
+                        <h3>A mantrák hatása az idegrendszerre</h3>
+                        <p>Hogyan változtatja meg a szavak rezgése az agyhullámainkat? A hangok tudománya a jógi hagyomány szerint.</p>
+                        <a href="#kapcsolat" class="card-link">Tovább olvasom &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rólam (About) -->
+    <section id="rolam" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content fade-up">
+                    <h2><span id="aboutTitle1">Utam</span> <span id="aboutTitle2">a csendhez</span></h2>
+                    <p id="aboutText1">Gurnam vagyok, nemzetközileg minősített Kundalini jóga és meditáció oktató. A gyakorlás több mint egy évtizede formálja az életemet, megtanított a jelenlétre, az elfogadásra és arra, hogyan merítsek erőt önmagamból.</p>
+                    <p id="aboutText2">Óráimon letisztult, sallangmentes formában adom át a tanításokat, fókuszban az idegrendszer kiegyensúlyozásával és a mentális tisztánlátás megteremtésével. Hiszem, hogy mindenki képes felébreszteni a saját belső potenciálját, ha megkapja hozzá a megfelelő eszközöket és teret.</p>
+                    <div class="signature" id="aboutSignature">Gurnam</div>
+                </div>
+                <div class="about-image fade-up delay-2">
+                    <!-- Placeholder image with gradient -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kapcsolat (Contact) -->
+    <section id="kapcsolat">
+        <div class="accent-bg"></div>
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 id="contactTitle">Lépj kapcsolatba</h2>
+                <p id="contactSubtitle">Kérdésed van egy órával kapcsolatban? Vagy magánórára jelentkeznél? Írj nekem bátran.</p>
+            </div>
+            <div class="contact-container fade-up delay-1">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3 id="contactInfoTitle">Információk</h3>
+                        <div class="info-item">
+                            <h4>Email</h4>
+                            <p id="contactEmail">hello@gurnamjoga.hu</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Telefon</h4>
+                            <p id="contactPhone">+36 30 123 4567</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Helyszín</h4>
+                            <p id="contactLocation">Budapest, 1051<br>Harmónia Stúdió</p>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Üzenet elküldve!');">
+                            <div class="form-group">
+                                <label for="name">Név</label>
+                                <input type="text" id="name" class="form-control" placeholder="A te neved" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email cím</label>
+                                <input type="email" id="email" class="form-control" placeholder="pelda@email.hu" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Üzenet</label>
+                                <textarea id="message" class="form-control" placeholder="Miben segíthetek?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Üzenet Küldése</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo">GURNAM</a>
+            <div class="footer-links">
+                <a href="#tanitasok">Tanítások</a>
+                <a href="#orarend">Órarend</a>
+                <a href="#programok">Programok</a>
+                <a href="#irasok">Írások</a>
+                <a href="#rolam">Rólam</a>
+                <a href="#kapcsolat">Kapcsolat</a>
+            </div>
+            <div class="copyright">
+                <span id="footerCopyright">&copy; 2023 Gurnam Kundalini Jóga. Minden jog fenntartva.</span><br><br>
+                <a href="admin.html" style="font-size:0.8rem;opacity:0.5;text-decoration:underline;">Admin szerkesztő</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <a href="#orarend" class="mobile-cta" id="mobileCtaText">Érdeklődöm</a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Live Clock Logic
+            const liveClock = document.getElementById('live-clock');
+            if (liveClock) {
+                const updateClock = () => {
+                    const now = new Date();
+                    const months = ['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'];
+                    const days = ['vasárnap', 'hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat'];
+                    const year = now.getFullYear();
+                    const month = months[now.getMonth()];
+                    const day = now.getDate();
+                    const weekday = days[now.getDay()];
+                    const hours = String(now.getHours()).padStart(2, '0');
+                    const minutes = String(now.getMinutes()).padStart(2, '0');
+                    liveClock.textContent = `${year}. ${month} ${day}., ${weekday} · ${hours}:${minutes}`;
+                };
+                updateClock();
+                setInterval(updateClock, 60000); // update every minute
+            }
+
+            // CAREFUL LOCALSTORAGE RECONNECTION
+            try {
+                const savedData = localStorage.getItem('gurnamSiteContent');
+                if (savedData) {
+                    const parsedData = JSON.parse(savedData);
+                    console.log("Content loaded from localStorage");
+
+                    // 1. Text Fields
+                    const textFields = [
+                        'heroTitle', 'heroSubtitle', 'heroButtonText',
+                        'teachingsTitle', 'teachingsSubtitle',
+                        'kundaliniTitle', 'kundaliniText', 'mantraTitle', 'mantraText', 'meditacioTitle', 'meditacioText', 'kriyaTitle', 'kriyaText', 'japjiTitle', 'japjiText',
+                        'scheduleTitle', 'scheduleSubtitle',
+                        'eventsTitle', 'eventsSubtitle',
+                        'blogTitle', 'blogSubtitle',
+                        'aboutTitle1', 'aboutTitle2', 'aboutText1', 'aboutText2', 'aboutSignature',
+                        'contactTitle', 'contactSubtitle', 'contactInfoTitle', 'contactEmail', 'contactPhone', 'contactLocation',
+                        'footerCopyright', 'mobileCtaText'
+                    ];
+
+                    textFields.forEach(field => {
+                        if (parsedData[field] !== undefined && parsedData[field].trim() !== '') {
+                            const el = document.getElementById(field);
+                            if (el) {
+                                // Assume HTML string since it might come from rich text editor
+                                // Normal text will also render fine.
+                                el.innerHTML = parsedData[field];
+                            }
+                        }
+                    });
+
+                    // 2. Schedule
+                    if (parsedData.schedule && parsedData.schedule.length > 0) {
+                        const scheduleContainer = document.getElementById('dynamic-schedule-container');
+                        let html = `
+                            <div class="next-class-card fade-up" id="detail-panel">
+                            </div>
+                        `;
+                        
+                        html += '<div class="schedule-list">';
+                        parsedData.schedule.forEach((c, i) => {
+                            html += `
+                                <div class="schedule-item fade-up delay-${(i%3)+1}">
+                                    <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                                        <div class="schedule-time">${c.day} ${c.time}</div>
+                                        <div class="schedule-info">
+                                            <h4>${c.title}</h4>
+                                            <p>${c.studioName || c.location} • ${c.duration}</p>
+                                            <div style="font-size:0.8rem;opacity:0.6">${c.description}</div>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0)" class="schedule-action view-details-btn" data-index="${i}">Részletek &rarr;</a>
+                                </div>
+                            `;
+                        });
+                        html += '</div>';
+                        scheduleContainer.innerHTML = html;
+
+                        const detailPanel = document.getElementById('detail-panel');
+                        const updateDetailPanel = (classData) => {
+                            if (!classData) return;
+                            const emailBody = encodeURIComponent(classData.emailBody || '');
+                            const emailSubj = encodeURIComponent(classData.emailSubject || '');
+                            const mailtoLink = `mailto:${classData.email || ''}?subject=${emailSubj}&body=${emailBody}`;
+                            
+                            detailPanel.innerHTML = `
+                                <div class="next-class-tag">${classData.studioName || 'Részletek'}</div>
+                                <div>
+                                    <h3>${classData.title}</h3>
+                                    <div class="next-class-details">
+                                        <p><i>📅</i> ${classData.day}, ${classData.time}</p>
+                                        <p><i>📍</i> ${classData.contactDetails || classData.location}</p>
+                                        <p><i>⏱️</i> ${classData.duration}</p>
+                                        <div style="display:flex; gap:10px;"><i style="font-style:normal;">🧘‍♀️</i><div>${classData.description}</div></div>
+                                    </div>
+                                    <a href="${mailtoLink}" class="btn btn-primary" style="width: 100%; text-align: center;">Érdeklődöm</a>
+                                </div>
+                            `;
+                        };
+
+                        const defaultClass = parsedData.schedule.find(s => s.highlighted) || parsedData.schedule[0];
+                        updateDetailPanel(defaultClass);
+
+                        const scheduleItems = document.querySelectorAll('.schedule-item');
+                        scheduleItems.forEach((item, idx) => {
+                            item.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                scheduleItems.forEach(i => i.classList.remove('active'));
+                                item.classList.add('active');
+                                updateDetailPanel(parsedData.schedule[idx]);
+                            });
+                        });
+                    }
+
+                    // 3. Events
+                    if (parsedData.events && parsedData.events.length > 0) {
+                        const eventsContainer = document.getElementById('dynamic-events-track');
+                        let html = '';
+                        parsedData.events.forEach((e, i) => {
+                            const imgStyle = e.image ? `background: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.6)), url('${e.image}') center/cover no-repeat;` : `background: linear-gradient(135deg, #1e293b, #0F172A);`;
+                            html += `
+                                <div class="carousel-slide fade-up delay-${(i%3)+1}">
+                                    <div class="card" style="height:100%;">
+                                        <div class="card-img-placeholder gradient-1" style="${imgStyle}"></div>
+                                        <div class="card-content">
+                                            <div class="card-meta">${e.date}</div>
+                                            <h3>${e.title}</h3>
+                                            <div style="flex-grow:1; font-size: 0.95rem; opacity: 0.8; margin-bottom: 1.5rem;">${e.description}</div>
+                                            <a href="#kapcsolat" class="card-link">${e.buttonText || 'Érdeklődöm'} &rarr;</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        eventsContainer.innerHTML = html;
+                    }
+
+                    // 4. Blogs
+                    if (parsedData.blogs && parsedData.blogs.length > 0) {
+                        const blogsContainer = document.getElementById('dynamic-blogs-grid');
+                        let html = '';
+                        parsedData.blogs.forEach((b, i) => {
+                            html += `
+                                <div class="card fade-up delay-${(i%3)+1}">
+                                    <div class="card-img-placeholder gradient-${(i%3)+1}"></div>
+                                    <div class="card-content">
+                                        <div class="card-meta">${b.category}</div>
+                                        <h3>${b.title}</h3>
+                                        <div style="flex-grow:1; font-size: 0.95rem; opacity: 0.8; margin-bottom: 1.5rem;">${b.description}</div>
+                                        <a href="#kapcsolat" class="card-link">${b.buttonText || 'Tovább olvasom'} &rarr;</a>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        blogsContainer.innerHTML = html;
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to parse localStorage data, keeping hardcoded defaults", e);
+            }
+
+            // Initialize Carousel (runs on either hardcoded or dynamic HTML)
+            const track = document.getElementById('dynamic-events-track');
+            if (track) {
+                const slides = Array.from(track.children);
+                const nextButton = document.getElementById('carousel-next');
+                const prevButton = document.getElementById('carousel-prev');
+                
+                if (slides.length > 0 && nextButton && prevButton) {
+                    nextButton.addEventListener('click', () => {
+                        const slideWidth = slides[0].getBoundingClientRect().width;
+                        track.scrollBy({ left: slideWidth + 40, behavior: 'smooth' });
+                    });
+
+                    prevButton.addEventListener('click', () => {
+                        const slideWidth = slides[0].getBoundingClientRect().width;
+                        track.scrollBy({ left: -(slideWidth + 40), behavior: 'smooth' });
+                    });
+                }
+            }
+            
+            // Hardcoded schedule detail toggle
+            const scheduleContainer = document.getElementById('dynamic-schedule-container');
+            if(scheduleContainer) {
+                const detailPanel = document.getElementById('detail-panel');
+                const scheduleItems = document.querySelectorAll('.schedule-item');
+                const fallbackData = [
+                    { title: "Útközben Jóga", day: "Hétfő", time: "18:45", duration: "90 perc", location: "Útközben Jóga", description: "Dinamikus gyakorlás az idegrendszer támogatására.", email: "hello@utkozbenjoga.hu" },
+                    { title: "Lélekforma", day: "Szerda", time: "19:45", duration: "90 perc", location: "Lélekforma Stúdió", description: "Mély belső munka és meditáció.", email: "info@lelekforma.hu" },
+                    { title: "Atlantisz", day: "Csütörtök", time: "19:00", duration: "90 perc", location: "Budapest, Atlantisz", description: "Tisztító kriya gyakorlatok.", email: "hello@atlantisz.hu" },
+                    { title: "Lélekforma", day: "Vasárnap", time: "19:00", duration: "90 perc", location: "Lélekforma Stúdió", description: "Vasárnap esti elmélyülés.", email: "info@lelekforma.hu" }
+                ];
+                
+                const updatePanel = (idx) => {
+                    const classData = fallbackData[idx];
+                    detailPanel.innerHTML = `
+                        <div class="next-class-tag">${classData.title}</div>
+                        <div>
+                            <h3>${classData.title}</h3>
+                            <div class="next-class-details">
+                                <p><i>📅</i> ${classData.day} ${classData.time}</p>
+                                <p><i>📍</i> ${classData.location}</p>
+                                <p><i>⏱️</i> ${classData.duration}</p>
+                                <p><i>🧘‍♀️</i> ${classData.description}</p>
+                            </div>
+                            <a href="mailto:${classData.email}" class="btn btn-primary" style="width: 100%; text-align: center;">Érdeklődöm</a>
+                        </div>
+                    `;
+                    scheduleItems.forEach((item, i) => {
+                        if(i === idx) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+                };
+
+                scheduleItems.forEach((item, idx) => {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        updatePanel(idx);
+                    });
+                });
+                
+                // Initialize first item as active
+                if(scheduleItems.length > 2) {
+                    // Update to match the default Atlantisz (index 2)
+                    updatePanel(2);
+                } else if(scheduleItems.length > 0) {
+                    updatePanel(0);
+                }
+            }
+
+            // Intersection Observer for fade-up animations
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+            // Sticky Navigation
+            const nav = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // Cinematic three-layer hero parallax
+            const hero = document.querySelector('.hero');
+            const bgLayer = document.querySelector('[data-parallax-layer="bg"]');
+            const mistLayer = document.querySelector('[data-parallax-layer="mist"]');
+            const subjectLayer = document.querySelector('[data-parallax-layer="subject"]');
+            const bgImage = bgLayer?.querySelector('.hero-layer-img');
+            const mistImage = mistLayer?.querySelector('.hero-layer-img');
+            const subjectImage = subjectLayer?.querySelector('.hero-layer-img');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (hero && bgLayer && mistLayer && subjectLayer && bgImage && mistImage && subjectImage && !prefersReducedMotion) {
+                const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+                if (window.gsap && window.ScrollTrigger) {
+                    gsap.registerPlugin(ScrollTrigger);
+
+                    const buildHeroParallax = (isMobile) => {
+                        const ranges = {
+                            bgX: isMobile ? -18 : -35,
+                            bgY: isMobile ? -28 : -45,
+                            bgStartScale: 1.04,
+                            bgEndScale: isMobile ? 1.1 : 1.12,
+                            mistX: isMobile ? -8 : -18,
+                            mistY: isMobile ? -14 : -25,
+                            mistScale: isMobile ? 1.015 : 1.03,
+                            subjectY: isMobile ? -18 : -30,
+                            subjectScale: isMobile ? 1.016 : 1.03,
+                            floatY: isMobile ? 4 : 7,
+                            floatScale: isMobile ? 1.003 : 1.007
+                        };
+
+                        gsap.set([bgLayer, mistLayer, subjectLayer, bgImage, mistImage, subjectImage], {
+                            clearProps: 'transform'
+                        });
+                        gsap.set([bgLayer, mistLayer, subjectLayer, bgImage, mistImage, subjectImage], {
+                            force3D: true,
+                            transformOrigin: '50% 50%'
+                        });
+                        gsap.set(mistImage, {
+                            transformOrigin: '50% 50%'
+                        });
+
+                        const scrollTimeline = gsap.timeline({
+                            defaults: { ease: 'none' },
+                            scrollTrigger: {
+                                trigger: hero,
+                                start: 'top top',
+                                end: 'bottom top',
+                                scrub: 0.75,
+                                invalidateOnRefresh: true
+                            }
+                        });
+
+                        scrollTimeline
+                            .fromTo(bgImage, { x: 0, y: 0, scale: ranges.bgStartScale }, { x: ranges.bgX, y: ranges.bgY, scale: ranges.bgEndScale }, 0)
+                            .fromTo(mistImage, { x: 0, y: 0, scale: 1 }, { x: ranges.mistX, y: ranges.mistY, scale: ranges.mistScale }, 0)
+                            .fromTo(subjectLayer, { y: 0, scale: 1 }, { y: ranges.subjectY, scale: ranges.subjectScale }, 0);
+
+                        gsap.to(subjectImage, {
+                            y: ranges.floatY,
+                            scale: ranges.floatScale,
+                            duration: isMobile ? 5.8 : 4.8,
+                            repeat: -1,
+                            yoyo: true,
+                            ease: 'sine.inOut',
+                            overwrite: false
+                        });
+                    };
+
+                    const heroMotion = gsap.matchMedia();
+                    heroMotion.add('(max-width: 768px)', () => buildHeroParallax(true));
+                    heroMotion.add('(min-width: 769px)', () => buildHeroParallax(false));
+                } else {
+                    const fallbackStart = performance.now();
+                    const renderFallbackParallax = () => {
+                        const isMobile = mobileQuery.matches;
+                        const wave = Math.sin((performance.now() - fallbackStart) / (isMobile ? 920 : 760));
+                        const progress = Math.min(Math.max(window.scrollY / hero.offsetHeight, 0), 1);
+                        const bgX = progress * (isMobile ? -18 : -35);
+                        const bgY = progress * (isMobile ? -28 : -45);
+                        const mistX = progress * (isMobile ? -8 : -18);
+                        const mistY = progress * (isMobile ? -14 : -25);
+                        const subjectY = progress * (isMobile ? -18 : -30);
+                        const floatY = wave * (isMobile ? 4 : 7);
+                        const floatScale = 1 + ((wave + 1) / 2) * (isMobile ? 0.003 : 0.007);
+
+                        bgImage.style.transform = `translate3d(${bgX}px, ${bgY}px, 0) scale(${1.04 + progress * (isMobile ? 0.06 : 0.08)})`;
+                        mistImage.style.transform = `translate3d(${mistX}px, ${mistY}px, 0) scale(${1 + progress * (isMobile ? 0.015 : 0.03)})`;
+                        subjectLayer.style.transform = `translate3d(0, ${subjectY}px, 0) scale(${1 + progress * (isMobile ? 0.016 : 0.03)})`;
+                        subjectImage.style.transform = `translate3d(0, ${floatY}px, 0) scale(${floatScale})`;
+                        window.requestAnimationFrame(renderFallbackParallax);
+                    };
+
+                    renderFallbackParallax();
+                }
+            }
+
+            // Mobile Hamburger Menu
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

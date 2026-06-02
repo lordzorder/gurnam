@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B00000000000000000000001 /* SocialPublisherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000001 /* SocialPublisherApp.swift */; };
+		B00000000000000000000002 /* SocialPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000002 /* SocialPlatform.swift */; };
+		B00000000000000000000003 /* PostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000003 /* PostStatus.swift */; };
+		B00000000000000000000004 /* SocialAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000004 /* SocialAccount.swift */; };
+		B00000000000000000000005 /* MediaAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000005 /* MediaAsset.swift */; };
+		B00000000000000000000006 /* PublishLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000006 /* PublishLog.swift */; };
+		B00000000000000000000007 /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000007 /* PostItem.swift */; };
+		B00000000000000000000008 /* SocialPlatformConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000008 /* SocialPlatformConnector.swift */; };
+		B00000000000000000000009 /* PlatformConnectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000009 /* PlatformConnectors.swift */; };
+		B00000000000000000000010 /* ConnectorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000010 /* ConnectorFactory.swift */; };
+		B00000000000000000000011 /* MediaStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000011 /* MediaStorageService.swift */; };
+		B00000000000000000000012 /* SampleDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000012 /* SampleDataSeeder.swift */; };
+		B00000000000000000000013 /* SchedulerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000013 /* SchedulerService.swift */; };
+		B00000000000000000000014 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000014 /* DateFormatters.swift */; };
+		B00000000000000000000015 /* MediaThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000015 /* MediaThumbnailView.swift */; };
+		B00000000000000000000016 /* PostEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000016 /* PostEditorViewModel.swift */; };
+		B00000000000000000000017 /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000017 /* AccountsViewModel.swift */; };
+		B00000000000000000000018 /* MediaLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000018 /* MediaLibraryViewModel.swift */; };
+		B00000000000000000000019 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000019 /* DashboardViewModel.swift */; };
+		B00000000000000000000020 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000020 /* OnboardingView.swift */; };
+		B00000000000000000000021 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000021 /* DashboardView.swift */; };
+		B00000000000000000000022 /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000022 /* PostListView.swift */; };
+		B00000000000000000000023 /* PostEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000023 /* PostEditorView.swift */; };
+		B00000000000000000000024 /* PublishLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000024 /* PublishLogView.swift */; };
+		B00000000000000000000025 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000025 /* CalendarView.swift */; };
+		B00000000000000000000026 /* MediaLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000026 /* MediaLibraryView.swift */; };
+		B00000000000000000000027 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000027 /* AccountsView.swift */; };
+		B00000000000000000000028 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000028 /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A00000000000000000000001 /* SocialPublisherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialPublisherApp.swift; sourceTree = "<group>"; };
+		A00000000000000000000002 /* SocialPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialPlatform.swift; sourceTree = "<group>"; };
+		A00000000000000000000003 /* PostStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStatus.swift; sourceTree = "<group>"; };
+		A00000000000000000000004 /* SocialAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccount.swift; sourceTree = "<group>"; };
+		A00000000000000000000005 /* MediaAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaAsset.swift; sourceTree = "<group>"; };
+		A00000000000000000000006 /* PublishLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishLog.swift; sourceTree = "<group>"; };
+		A00000000000000000000007 /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		A00000000000000000000008 /* SocialPlatformConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialPlatformConnector.swift; sourceTree = "<group>"; };
+		A00000000000000000000009 /* PlatformConnectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformConnectors.swift; sourceTree = "<group>"; };
+		A00000000000000000000010 /* ConnectorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorFactory.swift; sourceTree = "<group>"; };
+		A00000000000000000000011 /* MediaStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaStorageService.swift; sourceTree = "<group>"; };
+		A00000000000000000000012 /* SampleDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataSeeder.swift; sourceTree = "<group>"; };
+		A00000000000000000000013 /* SchedulerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerService.swift; sourceTree = "<group>"; };
+		A00000000000000000000014 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		A00000000000000000000015 /* MediaThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaThumbnailView.swift; sourceTree = "<group>"; };
+		A00000000000000000000016 /* PostEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewModel.swift; sourceTree = "<group>"; };
+		A00000000000000000000017 /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
+		A00000000000000000000018 /* MediaLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLibraryViewModel.swift; sourceTree = "<group>"; };
+		A00000000000000000000019 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		A00000000000000000000020 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A00000000000000000000021 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		A00000000000000000000022 /* PostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
+		A00000000000000000000023 /* PostEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorView.swift; sourceTree = "<group>"; };
+		A00000000000000000000024 /* PublishLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishLogView.swift; sourceTree = "<group>"; };
+		A00000000000000000000025 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		A00000000000000000000026 /* MediaLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLibraryView.swift; sourceTree = "<group>"; };
+		A00000000000000000000027 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
+		A00000000000000000000028 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A00000000000000000000029 /* SocialPublisher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialPublisher.entitlements; sourceTree = "<group>"; };
+		C00000000000000000000001 /* SocialPublisher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialPublisher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		G00000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D00000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				D00000000000000000000002 /* SocialPublisher */,
+				D00000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D00000000000000000000002 /* SocialPublisher */ = {
+			isa = PBXGroup;
+			children = (
+				D00000000000000000000004 /* App */,
+				D00000000000000000000005 /* Models */,
+				D00000000000000000000006 /* Views */,
+				D00000000000000000000007 /* ViewModels */,
+				D00000000000000000000008 /* Services */,
+				D00000000000000000000009 /* Connectors */,
+				D00000000000000000000010 /* Utilities */,
+				A00000000000000000000029 /* SocialPublisher.entitlements */,
+			);
+			path = SocialPublisher;
+			sourceTree = "<group>";
+		};
+		D00000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000001 /* SocialPublisher.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D00000000000000000000004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000001 /* SocialPublisherApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D00000000000000000000005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000002 /* SocialPlatform.swift */,
+				A00000000000000000000003 /* PostStatus.swift */,
+				A00000000000000000000004 /* SocialAccount.swift */,
+				A00000000000000000000005 /* MediaAsset.swift */,
+				A00000000000000000000006 /* PublishLog.swift */,
+				A00000000000000000000007 /* PostItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D00000000000000000000006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000020 /* OnboardingView.swift */,
+				A00000000000000000000021 /* DashboardView.swift */,
+				A00000000000000000000022 /* PostListView.swift */,
+				A00000000000000000000023 /* PostEditorView.swift */,
+				A00000000000000000000025 /* CalendarView.swift */,
+				A00000000000000000000026 /* MediaLibraryView.swift */,
+				A00000000000000000000027 /* AccountsView.swift */,
+				A00000000000000000000028 /* SettingsView.swift */,
+				A00000000000000000000024 /* PublishLogView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D00000000000000000000007 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000016 /* PostEditorViewModel.swift */,
+				A00000000000000000000017 /* AccountsViewModel.swift */,
+				A00000000000000000000018 /* MediaLibraryViewModel.swift */,
+				A00000000000000000000019 /* DashboardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D00000000000000000000008 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000011 /* MediaStorageService.swift */,
+				A00000000000000000000012 /* SampleDataSeeder.swift */,
+				A00000000000000000000013 /* SchedulerService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D00000000000000000000009 /* Connectors */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000008 /* SocialPlatformConnector.swift */,
+				A00000000000000000000009 /* PlatformConnectors.swift */,
+				A00000000000000000000010 /* ConnectorFactory.swift */,
+			);
+			path = Connectors;
+			sourceTree = "<group>";
+		};
+		D00000000000000000000010 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000014 /* DateFormatters.swift */,
+				A00000000000000000000015 /* MediaThumbnailView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E00000000000000000000001 /* SocialPublisher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00000000000000000000006 /* Build configuration list for PBXNativeTarget "SocialPublisher" */;
+			buildPhases = (
+				G00000000000000000000001 /* Sources */,
+				G00000000000000000000002 /* Frameworks */,
+				G00000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocialPublisher;
+			productName = SocialPublisher;
+			productReference = C00000000000000000000001 /* SocialPublisher.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E00000000000000000000002 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2641;
+				LastUpgradeCheck = 2641;
+				TargetAttributes = {
+					E00000000000000000000001 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+				};
+			};
+			buildConfigurationList = F00000000000000000000005 /* Build configuration list for PBXProject "SocialPublisher" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D00000000000000000000001;
+			productRefGroup = D00000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E00000000000000000000001 /* SocialPublisher */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		G00000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		G00000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000001 /* SocialPublisherApp.swift in Sources */,
+				B00000000000000000000002 /* SocialPlatform.swift in Sources */,
+				B00000000000000000000003 /* PostStatus.swift in Sources */,
+				B00000000000000000000004 /* SocialAccount.swift in Sources */,
+				B00000000000000000000005 /* MediaAsset.swift in Sources */,
+				B00000000000000000000006 /* PublishLog.swift in Sources */,
+				B00000000000000000000007 /* PostItem.swift in Sources */,
+				B00000000000000000000008 /* SocialPlatformConnector.swift in Sources */,
+				B00000000000000000000009 /* PlatformConnectors.swift in Sources */,
+				B00000000000000000000010 /* ConnectorFactory.swift in Sources */,
+				B00000000000000000000011 /* MediaStorageService.swift in Sources */,
+				B00000000000000000000012 /* SampleDataSeeder.swift in Sources */,
+				B00000000000000000000013 /* SchedulerService.swift in Sources */,
+				B00000000000000000000014 /* DateFormatters.swift in Sources */,
+				B00000000000000000000015 /* MediaThumbnailView.swift in Sources */,
+				B00000000000000000000016 /* PostEditorViewModel.swift in Sources */,
+				B00000000000000000000017 /* AccountsViewModel.swift in Sources */,
+				B00000000000000000000018 /* MediaLibraryViewModel.swift in Sources */,
+				B00000000000000000000019 /* DashboardViewModel.swift in Sources */,
+				B00000000000000000000020 /* OnboardingView.swift in Sources */,
+				B00000000000000000000021 /* DashboardView.swift in Sources */,
+				B00000000000000000000022 /* PostListView.swift in Sources */,
+				B00000000000000000000023 /* PostEditorView.swift in Sources */,
+				B00000000000000000000024 /* PublishLogView.swift in Sources */,
+				B00000000000000000000025 /* CalendarView.swift in Sources */,
+				B00000000000000000000026 /* MediaLibraryView.swift in Sources */,
+				B00000000000000000000027 /* AccountsView.swift in Sources */,
+				B00000000000000000000028 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F00000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F00000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F00000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SocialPublisher/SocialPublisher.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SocialPublisher;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.SocialPublisher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F00000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SocialPublisher/SocialPublisher.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SocialPublisher;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.SocialPublisher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F00000000000000000000005 /* Build configuration list for PBXProject "SocialPublisher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00000000000000000000001 /* Debug */,
+				F00000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F00000000000000000000006 /* Build configuration list for PBXNativeTarget "SocialPublisher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00000000000000000000003 /* Debug */,
+				F00000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E00000000000000000000002 /* Project object */;
+}

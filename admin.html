@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Gurnam Kundalini Jóga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span>GURNAM</span>
+        <small>Admin</small>
+      </div>
+      <nav class="admin-nav" aria-label="Admin navigáció">
+        <button class="nav-item active" type="button" data-view="dashboard">Bejegyzések / Tartalmak</button>
+        <button class="nav-item" type="button" data-view="editor">Szerkesztő</button>
+        <button class="nav-item" type="button" data-view="media">Képek feltöltése</button>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="index.html" class="btn btn-ghost">Vissza a weboldalra</a>
+        <button id="reset-btn" class="btn btn-danger" type="button">Alaphelyzet</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Tartalomkezelő</p>
+          <h1 id="view-title">Bejegyzések / Tartalmak</h1>
+        </div>
+        <div class="topbar-actions">
+          <span id="save-status" class="save-status" role="status"></span>
+          <button id="global-save-btn" class="btn btn-primary" type="button">Mentés</button>
+        </div>
+      </header>
+
+      <section id="dashboard" class="view active">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Tartalomlista</h2>
+              <p>Főoldali szekciók, „A rendszer” aloldalak és blogbejegyzések egy helyen.</p>
+            </div>
+            <div class="panel-actions">
+              <button id="add-page-btn" class="btn btn-secondary" type="button">Új aloldal</button>
+              <button id="add-blog-btn" class="btn btn-secondary" type="button">Új blogbejegyzés</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="content-table">
+              <thead>
+                <tr>
+                  <th>Cím</th>
+                  <th>Típus</th>
+                  <th>Státusz</th>
+                  <th>Utolsó módosítás</th>
+                  <th>Műveletek</th>
+                </tr>
+              </thead>
+              <tbody id="content-list"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="editor" class="view">
+        <div class="editor-grid">
+          <form id="content-form" class="panel editor-panel">
+            <div class="panel-header compact">
+              <div>
+                <h2 id="editor-heading">Tartalom szerkesztése</h2>
+                <p id="editor-help">Válassz egy elemet a listából, vagy hozz létre újat.</p>
+              </div>
+            </div>
+
+            <input type="hidden" id="item-id">
+
+            <div class="form-row">
+              <label for="item-title">Cím</label>
+              <input id="item-title" class="form-control" type="text">
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="item-type">Típus</label>
+                <select id="item-type" class="form-control">
+                  <option value="home-section">Főoldali szekció</option>
+                  <option value="system-page">Aloldal</option>
+                  <option value="blog-post">Blogbejegyzés</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="item-status">Státusz</label>
+                <select id="item-status" class="form-control">
+                  <option value="published">Publikált</option>
+                  <option value="draft">Vázlat</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="item-slug">Slug / URL</label>
+              <input id="item-slug" class="form-control" type="text" placeholder="pelda-oldal.html">
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="item-hero-title">Hero cím</label>
+                <input id="item-hero-title" class="form-control" type="text">
+              </div>
+              <div class="form-row">
+                <label for="item-content-heading">Tartalmi címsor</label>
+                <input id="item-content-heading" class="form-control" type="text">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="item-hero-image">Hero kép</label>
+              <div class="image-field">
+                <select id="item-hero-image" class="form-control"></select>
+                <img id="hero-image-preview" class="image-preview" alt="">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="item-intro">Rövid bevezető</label>
+              <textarea id="item-intro" class="form-control" rows="3"></textarea>
+            </div>
+
+            <div class="form-row">
+              <label>Fő szövegtartalom</label>
+              <div class="rte-wrapper">
+                <div class="rte-toolbar" aria-label="Szövegszerkesztő eszközök">
+                  <select id="format-block" class="rte-select" title="Formátum">
+                    <option value="P">Bekezdés</option>
+                    <option value="H1">H1</option>
+                    <option value="H2">H2</option>
+                    <option value="H3">H3</option>
+                  </select>
+                  <select id="font-family" class="rte-select" title="Betűtípus"></select>
+                  <select id="font-style" class="rte-select" title="Betűstílus">
+                    <option value="regular">Regular</option>
+                    <option value="bold">Bold</option>
+                    <option value="italic">Italic</option>
+                    <option value="bold-italic">Bold italic</option>
+                  </select>
+                  <span class="rte-divider"></span>
+                  <button type="button" class="rte-btn" data-cmd="bold"><b>B</b></button>
+                  <button type="button" class="rte-btn" data-cmd="italic"><i>I</i></button>
+                  <button type="button" class="rte-btn" data-cmd="underline"><u>U</u></button>
+                  <span class="rte-divider"></span>
+                  <button type="button" class="rte-btn" data-cmd="justifyLeft">Bal</button>
+                  <button type="button" class="rte-btn" data-cmd="justifyCenter">Közép</button>
+                  <button type="button" class="rte-btn" data-cmd="justifyRight">Jobb</button>
+                  <span class="rte-divider"></span>
+                  <button type="button" class="rte-btn" data-cmd="insertUnorderedList">Lista</button>
+                  <button type="button" class="rte-btn" data-cmd="insertOrderedList">1. lista</button>
+                  <button type="button" class="rte-btn" data-action="link">Link</button>
+                  <button type="button" class="rte-btn" data-cmd="undo">Vissza</button>
+                  <button type="button" class="rte-btn" data-cmd="redo">Újra</button>
+                </div>
+                <div id="item-body" class="rich-text" contenteditable="true"></div>
+              </div>
+            </div>
+
+            <div class="form-row inline-image-row">
+              <label for="inline-image-select">Kép beszúrása a szövegbe</label>
+              <div class="inline-actions">
+                <select id="inline-image-select" class="form-control"></select>
+                <button id="insert-image-btn" class="btn btn-secondary" type="button">Kép beszúrása</button>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="seo-title">SEO title</label>
+                <input id="seo-title" class="form-control" type="text">
+              </div>
+              <div class="form-row">
+                <label for="seo-description">SEO description</label>
+                <textarea id="seo-description" class="form-control" rows="3"></textarea>
+              </div>
+            </div>
+
+            <div class="editor-actions">
+              <button id="save-item-btn" class="btn btn-primary" type="submit">Tartalom mentése</button>
+              <button id="cancel-edit-btn" class="btn btn-ghost" type="button">Vissza a listához</button>
+            </div>
+          </form>
+
+          <aside class="panel preview-panel">
+            <h2>Gyors előnézet</h2>
+            <div class="mini-preview">
+              <div id="preview-hero" class="mini-preview-hero"></div>
+              <div class="mini-preview-body">
+                <p id="preview-type" class="eyebrow">Aloldal</p>
+                <h3 id="preview-title">Válassz tartalmat</h3>
+                <p id="preview-intro">Az itt szerkesztett tartalom localStorage-ba mentődik.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="media" class="view">
+        <div class="media-grid">
+          <div class="panel">
+            <div class="panel-header compact">
+              <div>
+                <h2>Képek feltöltése</h2>
+                <p>Backend nélkül a képek ideiglenesen localStorage-ban tárolódnak.</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="upload-folder">Mappa</label>
+                <select id="upload-folder" class="form-control">
+                  <option value="hero">hero</option>
+                  <option value="gallery">gallery</option>
+                  <option value="blog">blog</option>
+                  <option value="system">system</option>
+                  <option value="uploads">uploads</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="custom-folder">Egyedi mappa</label>
+                <input id="custom-folder" class="form-control" type="text" placeholder="pl. retreats">
+              </div>
+            </div>
+
+            <div class="upload-box">
+              <input id="image-upload" type="file" accept=".jpg,.jpeg,.png,.webp,.svg,image/jpeg,image/png,image/webp,image/svg+xml" multiple>
+              <p>JPG, JPEG, PNG, WEBP vagy SVG fájlokat tölthetsz fel.</p>
+            </div>
+            <p id="upload-error" class="error-msg"></p>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header compact">
+              <div>
+                <h2>Feltöltött képek</h2>
+                <p>Másold az URL-t, válaszd hero képként, vagy szúrd be a szövegbe.</p>
+              </div>
+            </div>
+            <div id="image-library" class="image-library"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
